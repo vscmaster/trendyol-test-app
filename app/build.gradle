@@ -1,0 +1,101 @@
+plugins {
+    id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
+
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk compile_sdk
+
+    defaultConfig {
+        applicationId "com.trendyol.vsh.interview.project"
+        minSdk min_sdk
+        targetSdk target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    lintOptions {
+        // Disable lintVital. Not needed since lint is run on CI
+        checkReleaseBuilds false
+        // Ignore any tests
+        ignoreTestSources true
+        // Make the build fail on any lint errors
+        abortOnError true
+        // Allow lint to check dependencies
+        checkDependencies true
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+}
+
+dependencies {
+    implementation project(path: ':core')
+
+    implementation "androidx.compose.runtime:runtime:$compose_version"
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.foundation:foundation-layout:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.compose.foundation:foundation:$compose_version"
+    implementation "androidx.compose.animation:animation:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+    implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-flowlayout:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-placeholder:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+
+    implementation "androidx.activity:activity-ktx:$androidx_activity_version"
+    implementation "androidx.activity:activity-compose:$androidx_activity_version"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+    implementation "androidx.navigation:navigation-compose:$navigation_version"
+
+    /* Hilt DI */
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation "androidx.hilt:hilt-navigation-compose:$hilt_androidx_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_androidx_version"
+
+    implementation "com.github.skydoves:landscapist-glide:$landscapist_glide_version"
+
+    /* Test dependencies */
+    androidTestImplementation "androidx.test:core:$androidx_test_version"
+    androidTestImplementation "androidx.test:rules:$androidx_test_version"
+    androidTestImplementation "androidx.test:runner:$androidx_test_version"
+}

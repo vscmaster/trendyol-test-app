@@ -1,0 +1,47 @@
+buildscript {
+
+    ext.kotlin_version = '1.6.10'
+    ext.compose_version = '1.1.1'
+    ext.coroutines_version = '1.6.0'
+    ext.accompanist_version = '0.23.0'
+    ext.lifecycle_version = '2.4.1'
+    ext.navigation_version = '2.4.2'
+    ext.ktor_version = '1.6.7'
+    ext.retrofit_version = '2.9.0'
+    ext.appcompat_version = '1.4.1'
+    ext.androidx_test_version = '1.4.0'
+    ext.androidx_core_version = '1.7.0'
+    ext.androidx_activity_version = '1.4.0'
+    ext.landscapist_glide_version = '1.5.1'
+    ext.room_version = '2.4.2'
+    ext.google_gson_version = '2.8.9'
+    ext.hilt_version = '2.41'
+    ext.hilt_androidx_version = '1.0.0'
+    ext.google_auto_value_version = '1.9'
+    ext.mockk_version = '1.12.2'
+
+    ext.min_sdk = 25
+    ext.target_sdk = 31
+    ext.compile_sdk = 31
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.1.1' apply false
+    id 'com.android.library' version '7.1.1' apply false
+    id 'org.jetbrains.kotlin.android' version "$kotlin_version" apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

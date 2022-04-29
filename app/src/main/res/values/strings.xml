@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Trendyol Interview Project</string>
+    <string name="load_error_check_connection">Unable to download home layout.\nCheck your internet connection and try again.</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+    <string name="see_more">See more</string>
+    <string name="see_less">See less</string>
+    <string name="detail_header">Details</string>
+    <string name="discover_now">Discover now</string>
+</resources>
